@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,14 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arsenal\Armor\Armor.cs" />
+    <Compile Include="Arsenal\Sword\SwordComponent\Blade.cs" />
+    <Compile Include="Arsenal\Sword\SwordComponent\Handle.cs" />
+    <Compile Include="Arsenal\Sword\SwordCreator.cs" />
+    <Compile Include="Arsenal\Weapon\OneHandWeapon\OneHandedWeapon.cs" />
+    <Compile Include="Arsenal\Weapon\TwoHandedSword\TwoHandedWeapon.cs" />
+    <Compile Include="Arsenal\Weapon\Weapon.cs" />
     <Compile Include="Environment\NPC\Unit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Json\JsonWeapons.cs" />
     <Compile Include="Services\UnitBuilder\UnitBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\DataBaseWeapons\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

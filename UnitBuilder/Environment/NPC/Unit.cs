@@ -1,16 +1,22 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using UnitBuilder.Arsenal.Armor;
+using UnitBuilder.Arsenal.Weapon;
 
 namespace UnitBuilder.Environment.NPC
 {
-    public class Unit
+    //need aded
+    //Fluent damage hp and protections 
+    //Two hand for weapon hend = slots in weapon
+
+    public class Unit 
     {
         private int HP;
         private int damage;
         private int protection;
         private int moralityLvl;
         private string casta;
-        private string arrmorType;
-        private string weapon;
+        private Armor armor;
+        private Weapon weaponSlot1;
+        private Weapon weaponSlot2;
         private bool horse;
 
         public Unit()
@@ -20,8 +26,9 @@ namespace UnitBuilder.Environment.NPC
             protection = 1;
             moralityLvl = default;
             casta = default;
-            arrmorType = default;
-            weapon = default;
+            armor = default;
+            weaponSlot1 = default;
+            weaponSlot2 = default;
             horse = default;
         }
 
@@ -55,16 +62,22 @@ namespace UnitBuilder.Environment.NPC
             casta = value;
         }
 
-        public string getArrmor() => arrmorType;
-        public void setArrmor(string type)
+        public Armor getArmor() => armor;
+        public void setArmor(Armor armor)
         {
-            arrmorType = type;
+            this.armor = armor;
         }
 
-        public string getWeapon() => weapon;
-        public void setWeapon(string type)
+        public Weapon getWeaponSlot1() => weaponSlot1;
+        public void setWeaponSlot1(Weapon weaponSlot1)
         {
-            weapon = type;
+            this.weaponSlot1 = weaponSlot1;
+        }
+
+        public Weapon getWeaponSlot2() => weaponSlot2;
+        public void setWeaponSlot2(Weapon weaponSlot2)
+        {
+            this.weaponSlot2 = weaponSlot2;
         }
 
         public bool getHorse() => horse;

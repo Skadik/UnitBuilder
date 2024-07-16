@@ -1,5 +1,5 @@
-﻿using System.Dynamic;
-using System.Runtime.Remoting.Messaging;
+﻿using UnitBuilder.Arsenal.Armor;
+using UnitBuilder.Arsenal.Weapon;
 using UnitBuilder.Environment.NPC;
 
 namespace UnitBuilder.Services.UnitBuilder
@@ -14,71 +14,66 @@ namespace UnitBuilder.Services.UnitBuilder
             magicians
         }
 
-        public enum arrmorType
-        {
-            heavy,
-            medium,
-            light
-        }
-
-        public enum weaponType
-        {
-            sword,
-            bow,
-            axe,
-            crossbow,
-            staff,
-            wand,
-            twoHandedSword,
-            dagger,
-            shield
-        }
-
         private Unit unit;
         public UnitBuilder() 
         {
             unit = new Unit();
         }
 
-        public UnitBuilder buildHP(int value)
+        public UnitBuilder setdHP(int value)
         {
             unit.setHP(value);
             return this;
         }
 
-        public UnitBuilder buildDamage(int value)
+        public UnitBuilder setDamage(int value)
         {
             unit.setDamage(value);
             return this;
         }
 
-        public UnitBuilder buildProtection(int value)
+        public UnitBuilder setProtection(int value)
         {
             unit.setProtection(value);
             return this;
         }
 
-        public UnitBuilder buildMoralytiLvl(int value)
+        public UnitBuilder setMoralytiLvl(int value)
         {
             unit.setMoralityLvl(value);
             return this;
         }
 
-        public UnitBuilder buildCasts(casta casta)
+        public UnitBuilder setCasts(casta casta)
         {
             unit.setCasta(casta.ToString());
             return this;
         }
 
-        public UnitBuilder buildArrmor(arrmorType arrmorType)
+        public UnitBuilder putOnArrmor(Armor armor)
         {
-            unit.setArrmor(arrmorType.ToString());
+            if(armor != null || unit.getArmor() == null)
+            {
+                unit.setArmor(armor);
+                unit.setProtection(unit.getProtection() + armor.getProtection());
+            }
             return this;
         }
 
-        public UnitBuilder buildSword(weaponType weaponType)
+
+        public UnitBuilder addWeapon(Weapon weapon)
         {
-            unit.setWeapon(weaponType.ToString());
+            if (unit.getWeaponSlot1() == default) //двуручка  або одноручка
+            {
+                unit.setWeaponSlot1(weapon);
+            }
+            else if (unit.getWeaponSlot1().getSlots() == 1) // тільки одноручка 
+            {
+                if (weapon.getSlots() == 1)
+                {
+                    unit.setWeaponSlot2(weapon);
+                }
+            }
             return this;
         }
 
