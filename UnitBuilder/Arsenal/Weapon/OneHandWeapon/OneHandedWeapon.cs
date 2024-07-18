@@ -3,11 +3,11 @@
     public class OneHandedWeapon : Weapon
     {
 
-        public OneHandedWeapon(Weapon weapon): base (weapon.getName(), weapon.getDamage()) 
+        public OneHandedWeapon(string name, int damage) : base(name, damage)
         {
             setSLots(1);
-            setName(weapon.getName());
-            setDamage(weapon.getDamage());
+            this.damage = damage;
+            this.name = name;
         }
     }
 }

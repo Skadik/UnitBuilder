@@ -1,8 +1,11 @@
-﻿using UnitBuilder.Arsenal.Armor;
+﻿using System;
+using System.Collections.Generic;
+using UnitBuilder.Arsenal.Armor;
+using UnitBuilder.Arsenal.Services;
 using UnitBuilder.Arsenal.Sword;
+using UnitBuilder.Arsenal.Weapon;
 using UnitBuilder.Arsenal.Weapon.OneHandWeapon;
-using UnitBuilder.Arsenal.Weapon.TwoHandedSword;
-using static UnitBuilder.Arsenal.Armor.Armor;
+using UnitBuilder.Services.Json;
 
 namespace UnitBuilder
 {
@@ -11,12 +14,24 @@ namespace UnitBuilder
         static void Main(string[] args)
         {
             SwordCreator creator = new SwordCreator();
+            BowCreateor bowCreateor = new BowCreateor();
             Services.UnitBuilder.UnitBuilder unitBuilder = new Services.UnitBuilder.UnitBuilder();
-            unitBuilder
-                 .addWeapon(new OneHandedWeapon(creator.randomCreate()))
-                 .addWeapon(new OneHandedWeapon(creator.randomCreate()))
-                 .putOnArrmor(new Armor(ArmorType.heavy, "dd",15))
-                 .getUnit();
+            JsonWeapons jsonWeapons = new JsonWeapons();
+            jsonWeapons.SaveObject(bowCreateor.randomCreate());
+            jsonWeapons.SaveObject(bowCreateor.randomCreate());
+            jsonWeapons.SaveObject(bowCreateor.randomCreate());
+            foreach (Weapon weapon in jsonWeapons.readAllObject())
+            {
+                Console.WriteLine(weapon);
+            }
+            //unitBuilder
+            //     .setHP(1150)
+            //     .setDamage(1150)
+            //     .setCasts(Services.UnitBuilder.UnitBuilder.casta.cavalry)
+            //     .addWeapon(new Arsenal.Weapon.Bow.Bow(bowCreateor.randomCreate()))
+            //     .addWeapon(new OneHandedWeapon(creator.randomCreate()))
+            //     .putOnArrmor(new Armor(ArmorType.heavy, "dd", 15))
+            //     .getUnit();
         }
     }
 }

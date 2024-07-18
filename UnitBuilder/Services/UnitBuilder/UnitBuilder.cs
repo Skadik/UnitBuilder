@@ -10,8 +10,7 @@ namespace UnitBuilder.Services.UnitBuilder
         {
             hunting,
             cavalry,
-            shooters,
-            magicians
+            shooters
         }
 
         private Unit unit;
@@ -20,7 +19,7 @@ namespace UnitBuilder.Services.UnitBuilder
             unit = new Unit();
         }
 
-        public UnitBuilder setdHP(int value)
+        public UnitBuilder setHP(int value)
         {
             unit.setHP(value);
             return this;
