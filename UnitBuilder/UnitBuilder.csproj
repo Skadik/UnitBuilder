@@ -47,9 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arsenal\Armor\Armor.cs" />
-    <Compile Include="Arsenal\Sword\SwordComponent\Blade.cs" />
-    <Compile Include="Arsenal\Sword\SwordComponent\Handle.cs" />
-    <Compile Include="Arsenal\Sword\SwordCreator.cs" />
+    <Compile Include="Arsenal\Services\BowComponnent\BowHandle.cs" />
+    <Compile Include="Arsenal\Services\BowComponnent\BowString.cs" />
+    <Compile Include="Arsenal\Services\BowCreateor.cs" />
+    <Compile Include="Arsenal\Services\Componnetn.cs" />
+    <Compile Include="Arsenal\Services\SwordComponent\Blade.cs" />
+    <Compile Include="Arsenal\Services\SwordComponent\Handle.cs" />
+    <Compile Include="Arsenal\Services\SwordCreator.cs" />
+    <Compile Include="Arsenal\Weapon\Bow\Bow.cs" />
     <Compile Include="Arsenal\Weapon\OneHandWeapon\OneHandedWeapon.cs" />
     <Compile Include="Arsenal\Weapon\TwoHandedSword\TwoHandedWeapon.cs" />
     <Compile Include="Arsenal\Weapon\Weapon.cs" />
