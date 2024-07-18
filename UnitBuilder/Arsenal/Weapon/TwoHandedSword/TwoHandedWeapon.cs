@@ -2,11 +2,11 @@
 {
     public class TwoHandedWeapon : Weapon
     {
-        public TwoHandedWeapon(string name, int damage) : base(name, damage)
+        public TwoHandedWeapon(Weapon weapon) : base(weapon.getName(), weapon.getDamage())
         {
             setSLots(2);
-            this.damage = damage;
-            this.name = name;
+            setName(weapon.getName());
+            setDamage(weapon.getDamage());
         }
     }
 }

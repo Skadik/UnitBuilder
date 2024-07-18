@@ -2,11 +2,11 @@
 {
     public class Bow : Weapon
     {
-        public Bow(string name, int damage) : base(name, damage)
+        public Bow(Weapon weapon) : base(weapon.getName(), weapon.getDamage())
         {
             setSLots(2);
-            this.damage = damage;
-            this.name = name;
+            setName(weapon.getName());
+            setDamage(weapon.getDamage());
         }
     }
 }
