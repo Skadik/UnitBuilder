@@ -6,6 +6,10 @@ using UnitBuilder.Arsenal.Sword;
 using UnitBuilder.Arsenal.Weapon;
 using UnitBuilder.Arsenal.Weapon.Bow;
 using UnitBuilder.Arsenal.Weapon.OneHandWeapon;
+using UnitBuilder.Environment.NPC;
+using UnitBuilder.Environment.Regiments;
+using UnitBuilder.Services;
+using UnitBuilder.Services.Factory;
 using UnitBuilder.Services.Json;
 
 namespace UnitBuilder
@@ -16,7 +20,7 @@ namespace UnitBuilder
         {
             SwordCreator creator = new SwordCreator();
             BowCreateor bowCreateor = new BowCreateor();
-            Services.UnitBuilder.UnitBuilder unitBuilder = new Services.UnitBuilder.UnitBuilder();
+            Services.UnitBuilder.NewUnitBuilder unitBuilder = new Services.UnitBuilder.NewUnitBuilder();
             //JsonWeapons jsonWeapons = new JsonWeapons();
             //jsonWeapons.SaveObject(bowCreateor.randomCreate());
             //jsonWeapons.SaveObject(bowCreateor.randomCreate());
@@ -25,14 +29,20 @@ namespace UnitBuilder
             //{
             //    Console.WriteLine(weapon);
             //}
-            unitBuilder
+            /*unitBuilder
                  .setHP(1150)
                  .setDamage(1150)
-                 .setCasts(Services.UnitBuilder.UnitBuilder.casta.cavalry)
+                 .createInfantry()
                  .addWeapon(new Bow(bowCreateor.randomCreate()))
                  .addWeapon(new OneHandedWeapon(creator.randomCreate()))
                  .putOnArrmor(new Armor(Armor.ArmorType.heavy, "VeryBerry", 15))
-                 .getUnit();
+                 .getUnit();*/
+
+            InfantryRegiment regiment = new InfantryRegiment();
+
+            JsonWeapons weapons = new JsonWeapons();
+
+            weapons.SaveRegiment(regiment);
         }
     }
 }

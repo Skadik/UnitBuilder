@@ -3,6 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnitBuilder.Arsenal.Weapon;
 using UnitBuilder.Arsenal.Weapon.Bow;
+using UnitBuilder.Environment;
 
 namespace UnitBuilder.Services.Json
 {
@@ -13,9 +14,9 @@ namespace UnitBuilder.Services.Json
 
         public JsonWeapons() 
         {
-            string fileName = "JsonWeapons.txt";
+            string fileName = "data.json";
             string fileFolderPath = "E:\\VS C# and C++ projekt\\UnitBuilder\\UnitBuilder\\UnitBuilder\\Services";
-            FilePath = fileFolderPath + fileName;
+            FilePath =  fileName;
 
             if(!File.Exists(fileFolderPath))
             {
@@ -23,7 +24,17 @@ namespace UnitBuilder.Services.Json
                 file.Close();
             }
             weapons = new List<Weapon>();
-        }    
+        }  
+        
+        public void SaveRegiment(Regiment regiment)
+        {
+            using (StreamWriter streamWriter = new StreamWriter(FilePath, false))
+            {
+                string json = JsonConvert.SerializeObject(regiment);
+
+                streamWriter.WriteLine(json);
+            }
+        }
 
         public void SaveObject(Weapon value)
         {

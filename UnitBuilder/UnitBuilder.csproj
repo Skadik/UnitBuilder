@@ -59,10 +59,23 @@
     <Compile Include="Arsenal\Weapon\TwoHandedSword\TwoHandedWeapon.cs" />
     <Compile Include="Arsenal\Weapon\Weapon.cs" />
     <Compile Include="Environment\NPC\Unit.cs" />
+    <Compile Include="Environment\Regiment.cs" />
+    <Compile Include="Environment\Regiments\ArcherRegiment.cs" />
+    <Compile Include="Environment\Regiments\InfantryRegiment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AbstractUnitFactory.cs" />
+    <Compile Include="Services\CreatePartyService.cs" />
+    <Compile Include="Services\Factory\ArcherUnit.cs" />
+    <Compile Include="Services\Factory\CavaleryUnit.cs" />
+    <Compile Include="Services\Factory\InfantryUnit.cs" />
+    <Compile Include="Services\Factory\IUnitFactory.cs" />
     <Compile Include="Services\Json\JsonWeapons.cs" />
-    <Compile Include="Services\UnitBuilder\UnitBuilder.cs" />
+    <Compile Include="Services\Regiments\States\ChargeState.cs" />
+    <Compile Include="Services\Regiments\States\RestState.cs" />
+    <Compile Include="Services\Regiments\States\RetreatState.cs" />
+    <Compile Include="Services\Regiments\States\State.cs" />
+    <Compile Include="Services\UnitBuilder\NewUnitBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

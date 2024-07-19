@@ -9,11 +9,18 @@ namespace UnitBuilder.Environment.NPC
 
     public class Unit 
     {
+        public enum TypeUnit
+        {
+            hunting,
+            cavalry,
+            shooters
+        }
+
         private int HP;
         private int damage;
         private int protection;
         private int moralityLvl;
-        private string casta;
+        private TypeUnit casta;
         private Armor armor;
         private Weapon weaponSlot1;
         private Weapon weaponSlot2;
@@ -56,8 +63,8 @@ namespace UnitBuilder.Environment.NPC
             moralityLvl = value;
         }
 
-        public string getCasta() => casta;
-        public void setCasta(string value)
+        public TypeUnit getCasta() => casta;
+        public void setCasta(TypeUnit value)
         {
             casta = value;
         }

@@ -1,55 +1,76 @@
 ﻿using UnitBuilder.Arsenal.Armor;
 using UnitBuilder.Arsenal.Weapon;
 using UnitBuilder.Environment.NPC;
+using static UnitBuilder.Environment.NPC.Unit;
 
 namespace UnitBuilder.Services.UnitBuilder
 {
-    public class UnitBuilder
+    public class NewUnitBuilder
     {
-        public enum casta
-        {
-            hunting,
-            cavalry,
-            shooters
-        }
-
         private Unit unit;
-        public UnitBuilder() 
+        public NewUnitBuilder() 
         {
             unit = new Unit();
         }
 
-        public UnitBuilder setHP(int value)
+        public NewUnitBuilder reInitUnit() 
+        {
+            unit = new Unit();
+
+            return this;
+        }
+
+        public NewUnitBuilder setHP(int value)
         {
             unit.setHP(value);
             return this;
         }
 
-        public UnitBuilder setDamage(int value)
+        public NewUnitBuilder setDamage(int value)
         {
             unit.setDamage(value);
             return this;
         }
 
-        public UnitBuilder setProtection(int value)
+        public NewUnitBuilder setProtection(int value)
         {
             unit.setProtection(value);
             return this;
         }
 
-        public UnitBuilder setMoralytiLvl(int value)
+        public NewUnitBuilder setMoralytiLvl(int value)
         {
             unit.setMoralityLvl(value);
             return this;
         }
 
-        public UnitBuilder setCasts(casta casta)
+        public NewUnitBuilder createInfantry() 
         {
-            unit.setCasta(casta.ToString());
+            unit.setCasta(TypeUnit.hunting);
+
             return this;
         }
 
-        public UnitBuilder putOnArrmor(Armor armor)
+        public NewUnitBuilder createCavalry() 
+        {
+            unit.setCasta(TypeUnit.cavalry);
+
+            return this;
+        }
+
+        public NewUnitBuilder createArcher()
+        {
+            unit.setCasta(TypeUnit.shooters);
+
+            return this;
+        }
+
+        private void setCasts(TypeUnit casta)
+        {
+            unit.setCasta(casta);
+        }
+
+        public NewUnitBuilder putOnArrmor(Armor armor)
         {
             if(armor != null || unit.getArmor() == null)
             {
@@ -60,7 +81,7 @@ namespace UnitBuilder.Services.UnitBuilder
         }
 
 
-        public UnitBuilder addWeapon(Weapon weapon)
+        public NewUnitBuilder addWeapon(Weapon weapon)
         {
             if (unit.getWeaponSlot1() == default) //двуручка  або одноручка
             {
