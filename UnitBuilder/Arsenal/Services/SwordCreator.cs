@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnitBuilder.Arsenal.Services;
 using UnitBuilder.Arsenal.SwordComponent;
 
 namespace UnitBuilder.Arsenal.Sword
 {
     public class SwordCreator
     {
-        private Random rnd = new Random(DateTime.UtcNow.Millisecond);
+        Random rnd = new Random();
         private List<Blade> blades;
         private List<Handle> handles;
         public SwordCreator()
